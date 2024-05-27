@@ -133,12 +133,12 @@ torre_de_hanoi:               ; Algoritmo da Torre de Hanói
   fim:                       ; Fim da função
     ret                      ; Retorna
 
-converter_string_int:         ; Converte string em inteiro
+converter_string_int:         ; Converte string (ASCII 0 a 9) em inteiro
   mov edx, 0                  ; Inicializa acumulador com 0
   mov ecx, 10                  ; Base de conversão (decimal)
 
-  mov esi, buffer_entrada            ; Aponta para início da string
-  mov edi, 4                  ; Contador de dígitos (máximo 4)
+  mov esi, buffer_entrada      ; Aponta para o início da string a ser convertida
+  mov edi, 3                  ; Define o número máximo de dígitos a serem lidos (3 neste caso).
 
 .loop:
   mov al, [esi]              ; Lê um caractere
@@ -147,7 +147,7 @@ converter_string_int:         ; Converte string em inteiro
   je .fim                    ; Se sim, termina a conversão
 
   sub al, '0'                ; Converte ASCII para numérico
-  imul edx, ecx              ; Multiplica acumulador pela base
+  imul edx, ecx              ; Multiplica acumulador pela base, para receber o novo caractere
   add edx, eax              ; Adiciona valor numérico ao acumulador
   dec edi                    ; Decrementa contador de dígitos
   jnz .loop                  ; Repete se ainda houver dígitos
