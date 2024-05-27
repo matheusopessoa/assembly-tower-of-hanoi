@@ -1,7 +1,7 @@
 section .data
 
   ; Mensagens de saída
-  msg_pergunta db 'Entrada: Quantidade de discos (até 99): ', 0
+  msg_pergunta db 'Entrada-> Quantidade de discos: ', 0
   msg_movendo_disco db 'Movimentando o disco ', 0
   msg_da_coluna db ' da coluna ', 0
   msg_para_coluna db ' para a coluna ', 0
@@ -11,8 +11,8 @@ section .data
   nome_coluna_destino db ' C ', 0
   nova_linha db 10  ; Nova linha
  
+ 
 section .bss
-
   ; Buffers de entrada e armazenamento
   num_discos resb 2     ; Armazena quantidade de discos
   tamanho_string resb 3     ; Armazena comprimento da string
@@ -138,7 +138,7 @@ converter_string_int:         ; Converte string em inteiro
   mov ecx, 10                  ; Base de conversão (decimal)
 
   mov esi, buffer_entrada            ; Aponta para início da string
-  mov edi, 3                  ; Contador de digitos (máximo 3)
+  mov edi, 4                  ; Contador de dígitos (máximo 4)
 
 .loop:
   mov al, [esi]              ; Lê um caractere
